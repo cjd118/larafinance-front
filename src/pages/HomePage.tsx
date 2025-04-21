@@ -1,4 +1,4 @@
-import MainHeader from './../layout/MainHeader';
+import MainHeader from '@layouts/MainHeader';
 
 export default function HomePage() {
 

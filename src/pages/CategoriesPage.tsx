@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router";
 import MainHeader from '@layouts/MainHeader';
-import ButtonLink from '@components/ButtonLink';
+import EditButton from '@components/EditButton';
+import LinkButton from '@components/LinkButton';
 import DeleteButton from '@components/DeleteButton';
 
 export default function CategoriesPage() {
@@ -11,8 +12,8 @@ export default function CategoriesPage() {
     <li className="m-2 p-2 rounded-md bg-gray-50 flex flex-row" key={item.id}>
       <div className="flex-1">{item.name}</div>
       <div className="flex flex-row">
-        <ButtonLink text="Edit" link={`/categories/${item.id}/edit`} className="mr-2"></ButtonLink>
-        <DeleteButton></DeleteButton>
+        <EditButton to={`/categories/${item.id}/edit`} className="mr-1">Edit</EditButton>
+        <DeleteButton onClick={() => window.alert('clicked')}></DeleteButton>
       </div>
     </li>
   );
@@ -21,7 +22,7 @@ export default function CategoriesPage() {
     <div>
       <MainHeader title="Categories">
         <div>
-          <ButtonLink text="Create new" link="/categories/new"></ButtonLink>
+          <LinkButton to="/categories/new">Create new</LinkButton>
         </div>
       </MainHeader>
       <ul>{listItems}</ul>

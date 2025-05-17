@@ -1,11 +1,4 @@
 import { Outlet } from "react-router"
-import { NavLink } from "react-router";
-import { House } from 'lucide-react';
-import { List } from 'lucide-react';
-import { LogOut } from 'lucide-react';
-
-
-
 
 export default function App() {
 

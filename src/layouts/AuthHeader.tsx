@@ -1,4 +1,9 @@
-export default function AuthHeader(props) {
+interface AuthHeaderProps {
+    title: string;
+    children?: React.ReactNode;
+}
+
+export default function AuthHeader(props: AuthHeaderProps) {
     return (
       <div>
         <header className="py-2 mb-8 border-slate-300 border-b-1 flex flex-row">

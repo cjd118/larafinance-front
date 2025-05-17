@@ -3,22 +3,25 @@ import AuthLayout from '@layouts/AuthLayout.tsx'
 import HomePage from '@pages/HomePage'
 import LoginPage from '@pages/LoginPage'
 import LogoutPage from '@pages/LogoutPage'
-import CategoriesPage from "@pages/CategoriesPage";
-import CategoriesNewPage from "@pages/CategoriesNewPage";
-import CategoriesEditPage from "@pages/CategoriesEditPage";
+import TransactionCategoriesPage from "@pages/TransactionCategoriesPage";
+import TransactionCategoriesNewPage from "@pages/TransactionCategoriesNewPage";
+import TransactionCategoriesEditPage from "@pages/TransactionCategoriesEditPage";
+import AccountsPage from '@pages/AccountsPage';
 
-import { categoriesLoader } from "./loaders/categoriesLoader";
+import authLoader from './loaders/authLoader';
+import { transactionCategoriesLoader } from "./loaders/transactionCategoriesLoader";
+import { transactionCategoryLoader } from "./loaders/transactionCategoryLoader";
 
 const routes = [
   {
     path: "/",
     Component: AppLayout,
     children: [
-      { index: true, Component: HomePage },
-      { path: "categories", Component: CategoriesPage, loader: categoriesLoader},
-      { path: "categories/new", Component: CategoriesNewPage, loader: categoriesLoader},
-      { path: "categories/:categoryId/edit", Component: CategoriesEditPage }
-
+      { index: true, Component: HomePage, loader: authLoader() },
+      { path: "transaction-categories", Component: TransactionCategoriesPage, loader: authLoader(transactionCategoriesLoader)},
+      { path: "transaction-categories/new", Component: TransactionCategoriesNewPage, loader: authLoader(transactionCategoriesLoader)},
+      { path: "transaction-categories/:categoryId", Component: TransactionCategoriesEditPage,loader: authLoader(transactionCategoryLoader) },
+      { path: "accounts", Component: AccountsPage,loader: authLoader() }
     ]
   },
   {

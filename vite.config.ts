@@ -18,6 +18,9 @@ export default defineConfig({
         '@forms': path.resolve(__dirname, 'src/forms'),
         '@layouts': path.resolve(__dirname, 'src/layouts'),
         '@helpers': path.resolve(__dirname, 'src/helpers'),
+        '@contexts': path.resolve(__dirname, 'src/contexts'),
+        '@errors': path.resolve(__dirname, 'src/errors'),
+        '@models': path.resolve(__dirname, 'src/mmodels'),
       }
   },
 })

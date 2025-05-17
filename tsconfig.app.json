@@ -28,7 +28,10 @@
       "@pages/*": ["./src/pages/*"],
       "@forms/*": ["./src/forms/*"],
       "@layouts/*": ["./src/layouts/*"],
-      "@helpers/*": ["./src/helpers/*"]
+      "@helpers/*": ["./src/helpers/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@errors/*": ["./src/errors/*"],
+      "@models/*": ["./src/models/*"],
     }
   },
   "include": ["src"]

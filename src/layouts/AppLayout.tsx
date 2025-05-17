@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 import { House } from 'lucide-react';
 import { List } from 'lucide-react';
 import { LogOut } from 'lucide-react';
+import { PiggyBank } from 'lucide-react';
 
 
 function getNavLinkClass({ isActive, isPending, isTransitioning }) {
@@ -29,9 +30,13 @@ export default function App() {
                 <House className="text-gray-700" size={24} />
                 <span className="ml-2">Home</span>
               </NavLink>
-              <NavLink to="/categories" className={getNavLinkClass} end>
+              <NavLink to="/transaction-categories" className={getNavLinkClass} end>
                 <List className="text-gray-700" size={24} />
                 <span className="ml-2">Categories</span>
+              </NavLink>
+              <NavLink to="/accounts" className={getNavLinkClass} end>
+                <PiggyBank className="text-gray-700" size={24} />
+                <span className="ml-2">Accounts</span>
               </NavLink>
             </div>
             <div>

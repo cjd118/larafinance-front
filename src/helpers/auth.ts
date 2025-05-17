@@ -7,7 +7,7 @@ export async function getCsrfCookie() {
   });
 }
 
-export async function login(email, password) {
+export async function login(email: string, password: string) {
   return apiFetch('/api/login', {
     method: 'POST',
     body: JSON.stringify({ email, password }),
@@ -24,9 +24,13 @@ export function getCsrfToken() {
   return getCookie('XSRF-TOKEN');
 }
 
-function getCookie(name) {
+function getCookie(name: string) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+  if (parts.length === 2) {
+    const cookiePart = parts.pop();
+    const cookieValue = cookiePart ? cookiePart.split(';').shift() : null;
+    return cookieValue ? decodeURIComponent(cookieValue) : null;
+  }
   return null;
 }

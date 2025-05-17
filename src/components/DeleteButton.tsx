@@ -9,8 +9,6 @@ export default function DeleteButton(props: ButtonProps) {
           return;
         }
     
-        // Call the original onClick handler if it exists
-        console.log("DeleteButton clicked");
         props.onClick?.(e);
       };
 

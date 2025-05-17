@@ -1,4 +1,9 @@
-export default function MainHeader(props) {
+interface MainHeaderProps {
+    title: string;
+    children?: React.ReactNode;
+}
+
+export default function MainHeader(props: MainHeaderProps) {
     return (
       <div>
         <header className="p-4 border-slate-300 border-b-1 flex flex-row">

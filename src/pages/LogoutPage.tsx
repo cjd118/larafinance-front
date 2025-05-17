@@ -1,11 +1,16 @@
 import { useEffect } from 'react';
 import AuthHeader from '@layouts/AuthHeader';
 import { logout } from '@helpers/auth';  
+import { useAuth } from '@contexts/AuthContext';
+
 
 export default function LogoutPage() {
 
+  const { logout: authLogout } = useAuth();
+
   const handleLogout = async () => {
     await logout(); 
+    authLogout();
   }
 
   useEffect(() => {

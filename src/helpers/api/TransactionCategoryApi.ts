@@ -10,8 +10,8 @@ export default class TransactionCategoryApi {
 
     constructor(
         id: number = 0,
-        parentId: number = 0,
-        name: string = '', 
+        parentId: number | null = null,
+        name: string = '',
         path: string = '',
         createdAt: Date = new Date(),
         updatedAt: Date = new Date(),
@@ -43,7 +43,7 @@ export default class TransactionCategoryApi {
         return await apiFetch('/api/transaction-categories', {
             method: 'POST',
             body: JSON.stringify({
-                parent_id: this.parentId == 0 ? null : this.parentId,
+                parent_id: this.parentId,
                 name: this.name
             })
         });
@@ -53,7 +53,7 @@ export default class TransactionCategoryApi {
         return await apiFetch(`/api/transaction-categories/${this.id}`, {
             method: 'PUT',
             body: JSON.stringify({
-                parent_id: this.parentId == 0 ? null : this.parentId,
+                parent_id: this.parentId,
                 name: this.name
             })
         });

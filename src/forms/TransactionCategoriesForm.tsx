@@ -18,7 +18,7 @@ type Props = {
 
 export default function TransactionCategoriesForm({ transactionCategoryApi, categories, onSubmit }: Props) {
 
-  const [parentId, setParentId] = useState<number>(transactionCategoryApi.parentId || 0);
+  const [parentId, setParentId] = useState<number | null>(transactionCategoryApi.parentId);
   const [name, setName] = useState<string>(transactionCategoryApi.name || '');
   const [error, setError] = useState<ValidationError | string | null>(null);
 
@@ -49,7 +49,7 @@ export default function TransactionCategoriesForm({ transactionCategoryApi, cate
         <TextInput required label="Category Name" type="text" name="name" value={name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}></TextInput>
     </div>
     <div className="mb-4">
-        <SelectInput label="Parent" onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setParentId(Number(e.target.value))} value={parentId} data={categories} dataKey="id" dataValue="path"></SelectInput>
+        <SelectInput label="Parent" onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setParentId(e.target.value === '' ? null : Number(e.target.value))} value={parentId ?? ''} data={categories} dataKey="id" dataValue="path"></SelectInput>
     </div>
     <Button type="submit">Save</Button>
     </form>

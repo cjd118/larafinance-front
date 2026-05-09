@@ -49,7 +49,7 @@ export default function TransactionCategoriesForm({ transactionCategoryApi, cate
         <TextInput required label="Category Name" type="text" name="name" value={name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}></TextInput>
     </div>
     <div className="mb-4">
-        <SelectInput label="Parent" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setParentId(e.target.value)} value={parentId} data={categories} dataKey="id" dataValue="path"></SelectInput>
+        <SelectInput label="Parent" onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setParentId(Number(e.target.value))} value={parentId} data={categories} dataKey="id" dataValue="path"></SelectInput>
     </div>
     <Button type="submit">Save</Button>
     </form>

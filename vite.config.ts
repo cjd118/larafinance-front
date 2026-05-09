@@ -20,7 +20,7 @@ export default defineConfig({
         '@helpers': path.resolve(__dirname, 'src/helpers'),
         '@contexts': path.resolve(__dirname, 'src/contexts'),
         '@errors': path.resolve(__dirname, 'src/errors'),
-        '@models': path.resolve(__dirname, 'src/mmodels'),
+        '@loaders': path.resolve(__dirname, 'src/loaders'),
       }
   },
 })

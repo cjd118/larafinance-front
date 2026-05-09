@@ -8,9 +8,10 @@ import TransactionCategoriesNewPage from "@pages/TransactionCategoriesNewPage";
 import TransactionCategoriesEditPage from "@pages/TransactionCategoriesEditPage";
 import AccountsPage from '@pages/AccountsPage';
 
-import authLoader from './loaders/authLoader';
-import { transactionCategoriesLoader } from "./loaders/transactionCategoriesLoader";
-import { transactionCategoryLoader } from "./loaders/transactionCategoryLoader";
+import authLoader from '@loaders/authLoader';
+import { transactionCategoriesLoader } from "@loaders/transactionCategoriesLoader";
+import { transactionCategoryLoader } from "@loaders/transactionCategoryLoader";
+import { accountsLoader } from "@loaders/accountsLoader";
 
 const routes = [
   {
@@ -21,7 +22,7 @@ const routes = [
       { path: "transaction-categories", Component: TransactionCategoriesPage, loader: authLoader(transactionCategoriesLoader)},
       { path: "transaction-categories/new", Component: TransactionCategoriesNewPage, loader: authLoader(transactionCategoriesLoader)},
       { path: "transaction-categories/:categoryId", Component: TransactionCategoriesEditPage,loader: authLoader(transactionCategoryLoader) },
-      { path: "accounts", Component: AccountsPage,loader: authLoader() }
+      { path: "accounts", Component: AccountsPage,loader: authLoader(accountsLoader) }
     ]
   },
   {
